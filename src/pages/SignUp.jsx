@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { rem, validate } from '../utils';
-import { Button, Container, Input, Label } from '../components';
+import { Button, Container, Input, Label, SubTitle } from '../components';
 
 const SignUp = () => {
   const [formValues, setFormValues] = useState({ email: '', password: '' });
@@ -20,6 +20,7 @@ const SignUp = () => {
 
   return (
     <Container w={rem(400)}>
+      <SubTitle>회원가입</SubTitle>
       <form onSubmit={handleSubmit}>
         <Label htmlFor="email">Email address</Label>
         <Input
@@ -38,7 +39,7 @@ const SignUp = () => {
           onChange={handleFormChange}
         />
         <Button data-testid="signup-button" disabled={isDisabled}>
-          회원가입
+          Sign up
         </Button>
       </form>
     </Container>
