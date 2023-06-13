@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { SIGNIN_URL, TODO_URL } from '../constants';
+import { SIGNIN_URL, TODO_URL, TOKEN_KEY } from '../constants';
 import { signIn, signUp } from '../apis/auth';
 
 const useAuth = () => {
@@ -26,7 +26,7 @@ const useAuth = () => {
     e.preventDefault();
     try {
       const { access_token: accessToken } = await signIn(formValues);
-      localStorage.setItem('access_token', accessToken);
+      localStorage.setItem(TOKEN_KEY, accessToken);
       navigate(TODO_URL);
     } catch (error) {
       console.error(error);
