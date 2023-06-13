@@ -1,2 +1,2 @@
-export { signUp } from './auth';
-export { signIn } from './auth';
+export { signUp, signIn } from './auth';
+export { getTodos, createTodo, updateTodo, deleteTodo } from './todo';
