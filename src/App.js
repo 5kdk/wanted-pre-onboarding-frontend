@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle, theme } from './styles';
+import { ROOT_URL, SIGNIN_URL, SIGNUP_URL, TODO_URL } from './constants';
 
 const lazyLoadRoutes = pageName => {
   const LazyElement = lazy(() => import(`./pages/${pageName}.jsx`));
@@ -15,19 +16,19 @@ const lazyLoadRoutes = pageName => {
 
 const routerConfig = createBrowserRouter([
   {
-    path: '/',
+    path: ROOT_URL,
     element: lazyLoadRoutes('Root'),
     children: [
       {
-        path: 'signin',
+        path: SIGNIN_URL,
         element: lazyLoadRoutes('SignIn'),
       },
       {
-        path: 'signup',
+        path: SIGNUP_URL,
         element: lazyLoadRoutes('SignUp'),
       },
       {
-        path: 'todo',
+        path: TODO_URL,
         element: lazyLoadRoutes('Todo'),
       },
     ],
