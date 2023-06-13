@@ -1,24 +1,34 @@
+import { Suspense, lazy } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle, theme } from './styles';
-import { Root, SignIn, SignUp, Todo } from './pages';
+
+const lazyLoadRoutes = pageName => {
+  const LazyElement = lazy(() => import(`./pages/${pageName}.jsx`));
+
+  return (
+    <Suspense fallback={<div>...loading</div>}>
+      <LazyElement />
+    </Suspense>
+  );
+};
 
 const routerConfig = createBrowserRouter([
   {
     path: '/',
-    element: <Root />,
+    element: lazyLoadRoutes('Root'),
     children: [
       {
         path: 'signin',
-        element: <SignIn />,
+        element: lazyLoadRoutes('SignIn'),
       },
       {
         path: 'signup',
-        element: <SignUp />,
+        element: lazyLoadRoutes('SignUp'),
       },
       {
         path: 'todo',
-        element: <Todo />,
+        element: lazyLoadRoutes('Todo'),
       },
     ],
   },
