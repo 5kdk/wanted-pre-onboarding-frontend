@@ -3,6 +3,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle, theme } from './styles';
 import { ROOT_URL, SIGNIN_URL, SIGNUP_URL, TODO_URL } from './constants';
+import AuthenticationGuard from './guard/AuthenticationGuard';
 
 const lazyLoadRoutes = pageName => {
   const LazyElement = lazy(() => import(`./pages/${pageName}.jsx`));
@@ -21,15 +22,15 @@ const routerConfig = createBrowserRouter([
     children: [
       {
         path: SIGNIN_URL,
-        element: lazyLoadRoutes('SignIn'),
+        element: <AuthenticationGuard redirectTo={TODO_URL} element={lazyLoadRoutes('SignIn')} />,
       },
       {
         path: SIGNUP_URL,
-        element: lazyLoadRoutes('SignUp'),
+        element: <AuthenticationGuard redirectTo={TODO_URL} element={lazyLoadRoutes('SignUp')} />,
       },
       {
         path: TODO_URL,
-        element: lazyLoadRoutes('Todo'),
+        element: <AuthenticationGuard redirectTo={SIGNIN_URL} element={lazyLoadRoutes('Todo')} />,
       },
     ],
   },
