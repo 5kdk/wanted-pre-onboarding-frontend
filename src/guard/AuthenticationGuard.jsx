@@ -1,8 +1,8 @@
 import { Navigate } from 'react-router-dom';
-import { TOKEN_KEY } from '../constants';
+import { getToken } from '../utils';
 
 const AuthenticationGuard = ({ redirectTo, element }) => {
-  const isLogin = localStorage.getItem(TOKEN_KEY);
+  const isLogin = getToken();
 
   if (redirectTo === '/todo' && isLogin) {
     return <Navigate to={redirectTo} />;
