@@ -14,6 +14,9 @@ const fontWeight = {
   xl: 900,
 };
 
+const shadow =
+  '0 0.1875rem 0.3125rem rgba(0, 0, 0, 0.07), 0 0.5rem 1rem rgba(0, 0, 0, 0.07), 0 1rem 2rem rgba(0, 0, 0, 0.07), 0 2rem 4rem rgba(0, 0, 0, 0.07)';
+
 const spacing = {
   xs: '0.5rem',
   sm: '0.75rem',
@@ -24,6 +27,7 @@ const spacing = {
 
 const colors = {
   primary: '#2b90d9',
+  primaryFocus: 'rgb(26 120 187)',
   white: '#ffffff',
   black: '#282c37',
   gray: '#d9e1e8',
@@ -32,6 +36,7 @@ const colors = {
 const theme = {
   fontSize,
   fontWeight,
+  shadow,
   spacing,
   colors,
 };
