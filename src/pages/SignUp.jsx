@@ -1,9 +1,13 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { rem, validate } from '../utils';
 import { Button, Container, Input, Label, SubTitle } from '../components';
+import { SIGNIN_URL } from '../constants';
+import { signUp } from '../apis/auth';
 
 const SignUp = () => {
   const [formValues, setFormValues] = useState({ email: '', password: '' });
+  const navigate = useNavigate();
 
   const isDisabled = !validate(formValues);
 
@@ -12,10 +16,14 @@ const SignUp = () => {
     setFormValues({ ...formValues, [name]: value });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    console.log('hi');
-    // api 로직 추가
+    try {
+      await signUp(formValues);
+      navigate(SIGNIN_URL);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -38,7 +46,7 @@ const SignUp = () => {
           data-testid="password-input"
           onChange={handleFormChange}
         />
-        <Button data-testid="signup-button" disabled={isDisabled}>
+        <Button type="submit" data-testid="signup-button" disabled={isDisabled}>
           Sign up
         </Button>
       </form>
