@@ -8,12 +8,13 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
+  margin: ${({ theme }) => theme.spacing.xl} 0;
   color: ${({ theme }) => theme.colors.black};
 `;
 
 const Root = () => (
   <Container>
-    <Title>원티드 프리온보딩 프론트엔드 - 선발 과제</Title>
+    <Title>Wanted Pre-onboarding</Title>
     <Outlet />
   </Container>
 );
