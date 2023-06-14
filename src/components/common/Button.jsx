@@ -28,8 +28,8 @@ const StyledButton = styled.button`
     `}
 `;
 
-const Button = ({ children, type = 'button', disabled }) => (
-  <StyledButton type={type} disabled={disabled}>
+const Button = ({ children, type = 'button', disabled, onClick }) => (
+  <StyledButton type={type} disabled={disabled} onClick={onClick}>
     {children}
   </StyledButton>
 );
