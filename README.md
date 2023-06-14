@@ -28,7 +28,7 @@ $ npm start
 
 ## 데모 페이지
 
-[데모 링크]()
+[데모 링크](https://wanted-pre-onboarding-frontend-xi.vercel.app)
 
 <br>
 
