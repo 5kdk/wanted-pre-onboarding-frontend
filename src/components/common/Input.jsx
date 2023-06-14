@@ -18,6 +18,6 @@ const StyledInput = styled.input.attrs(props => ({ type: props.type || 'text' })
   }
 `;
 
-const Input = forwardRef(({ ...rest }) => <StyledInput {...rest} />);
+const Input = forwardRef((props, ref) => <StyledInput {...props} ref={ref} />);
 
 export default Input;
