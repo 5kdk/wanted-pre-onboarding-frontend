@@ -1,8 +1,7 @@
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { useEffect } from 'react';
-import { getToken } from '../utils';
-import { SIGNIN_URL, SIGNUP_URL, TODO_URL } from '../constants';
+import { ROOT_URL, SIGNIN_URL } from '../constants';
 
 const Container = styled.div`
   text-align: center;
@@ -16,19 +15,14 @@ const Title = styled.h1`
 `;
 
 const Root = () => {
-  const isLogin = getToken();
-  const navigate = useNavigate();
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (isLogin) {
-      navigate(TODO_URL);
-    } else if (pathname === SIGNIN_URL) {
+    if (pathname === ROOT_URL) {
       navigate(SIGNIN_URL);
-    } else {
-      navigate(SIGNUP_URL);
     }
-  }, [isLogin, navigate, pathname]);
+  }, [navigate, pathname]);
 
   return (
     <Container>
