@@ -18,8 +18,8 @@ const useAuth = () => {
     try {
       await signUp(formValues);
       navigate(SIGNIN_URL);
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      alert(err.response.data.message);
     }
   };
 
@@ -29,8 +29,8 @@ const useAuth = () => {
       const { access_token: accessToken } = await signIn(formValues);
       setToken(accessToken);
       navigate(TODO_URL);
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      alert(err.response.data.message);
     }
   };
 
