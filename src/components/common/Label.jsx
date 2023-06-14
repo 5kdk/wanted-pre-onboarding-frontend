@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { rem } from '../utils';
+import { rem } from '../../utils';
 
 const StyledLabel = styled.label`
   display: block;

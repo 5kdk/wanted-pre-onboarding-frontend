@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import { rem } from '../utils';
+import { forwardRef } from 'react';
+import { rem } from '../../utils';
 
 const StyledInput = styled.input.attrs(props => ({ type: props.type || 'text' }))`
-  display: inline-block;
+  display: ${({ display }) => display || 'inline-block'};
   width: ${({ w }) => w || '100%'};
   height: ${rem(32)};
   margin-bottom: ${({ p, theme }) => p || theme.spacing.lg};
@@ -17,6 +18,6 @@ const StyledInput = styled.input.attrs(props => ({ type: props.type || 'text' })
   }
 `;
 
-const Input = ({ ...rest }) => <StyledInput {...rest} />;
+const Input = forwardRef(({ ...rest }) => <StyledInput {...rest} />);
 
 export default Input;
