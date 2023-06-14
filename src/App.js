@@ -3,8 +3,9 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle, theme } from './styles';
 import { ROOT_URL, SIGNIN_URL, SIGNUP_URL, TODO_URL } from './constants';
-import AuthenticationGuard from './guard/AuthenticationGuard';
 import { Loader } from './components';
+import AuthenticationGuard from './guard/AuthenticationGuard';
+import Root from './pages/Root';
 
 const lazyLoadRoutes = pageName => {
   const LazyElement = lazy(() => import(`./pages/${pageName}.jsx`));
@@ -19,7 +20,7 @@ const lazyLoadRoutes = pageName => {
 const routerConfig = createBrowserRouter([
   {
     path: ROOT_URL,
-    element: lazyLoadRoutes('Root'),
+    element: <Root />,
     children: [
       {
         path: SIGNIN_URL,
