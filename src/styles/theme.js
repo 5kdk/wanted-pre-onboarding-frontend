@@ -14,8 +14,7 @@ const fontWeight = {
   xl: 900,
 };
 
-const shadow =
-  '0 0.1875rem 0.3125rem rgba(0, 0, 0, 0.07), 0 0.5rem 1rem rgba(0, 0, 0, 0.07), 0 1rem 2rem rgba(0, 0, 0, 0.07), 0 2rem 4rem rgba(0, 0, 0, 0.07)';
+const shadow = '0 0.1875rem 0.3125rem rgba(0, 0, 0, 0.07), 0 0.5rem 1rem rgba(0, 0, 0, 0.07)';
 
 const spacing = {
   xs: '0.5rem',
