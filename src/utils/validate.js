@@ -1,9 +1,8 @@
 const validate = ({ email, password }) => {
-  if (!email || !password) {
-    return false;
-  }
+  const emailValid = email.includes('@');
+  const passwordValid = password.length >= 8;
 
-  return email.includes('@') && password.length >= 8;
+  return [emailValid, passwordValid];
 };
 
 export default validate;

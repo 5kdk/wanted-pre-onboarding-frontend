@@ -5,7 +5,8 @@ import { SIGNIN_URL } from '../constants';
 
 const SignUp = () => {
   const { formValues, handleValueChange, handleSignUpSubmit } = useAuth();
-  const isDisabled = !validate(formValues);
+  const [emailValid, passwordValid] = validate(formValues);
+  const allValid = emailValid && passwordValid;
 
   return (
     <>
@@ -18,6 +19,7 @@ const SignUp = () => {
             id="email"
             name="email"
             value={formValues.email}
+            valid={emailValid}
             data-testid="email-input"
             onChange={handleValueChange}
           />
@@ -25,12 +27,13 @@ const SignUp = () => {
           <Input
             type="password"
             id="password"
-            name="email"
+            name="password"
             value={formValues.password}
+            valid={passwordValid}
             data-testid="password-input"
             onChange={handleValueChange}
           />
-          <Button type="submit" data-testid="signup-button" disabled={isDisabled}>
+          <Button type="submit" data-testid="signup-button" disabled={!allValid}>
             Sign up
           </Button>
         </form>

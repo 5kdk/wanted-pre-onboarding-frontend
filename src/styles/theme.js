@@ -27,6 +27,7 @@ const spacing = {
 const colors = {
   primary: '#2b90d9',
   primaryFocus: 'rgb(26 120 187)',
+  caution: '#E53A40',
   white: '#ffffff',
   black: '#282c37',
   gray: '#d9e1e8',
