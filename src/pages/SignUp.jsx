@@ -15,6 +15,7 @@ const SignUp = () => {
           <Label htmlFor="email">Email address</Label>
           <Input
             type="email"
+            id="email"
             name="email"
             value={formValues.email}
             data-testid="email-input"
@@ -23,7 +24,8 @@ const SignUp = () => {
           <Label htmlFor="password">Password</Label>
           <Input
             type="password"
-            name="password"
+            id="password"
+            name="email"
             value={formValues.password}
             data-testid="password-input"
             onChange={handleValueChange}
