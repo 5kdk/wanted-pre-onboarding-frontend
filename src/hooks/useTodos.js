@@ -14,6 +14,7 @@ const useTodos = () => {
       const updatedData = await createTodo(todo);
       setTodos([...todos, updatedData]);
       e.target[0].value = '';
+      setError(null);
     } catch (err) {
       setError(err);
     }
@@ -25,6 +26,7 @@ const useTodos = () => {
 
     try {
       await updateTodo({ id, todo, isCompleted });
+      setError(null);
     } catch (err) {
       setError(err);
       setTodos(prevTodos);
@@ -37,6 +39,7 @@ const useTodos = () => {
 
     try {
       await deleteTodo({ id });
+      setError(null);
     } catch (err) {
       setError(err);
       setTodos(prevTodos);
@@ -49,6 +52,7 @@ const useTodos = () => {
         setIsLoading(true);
         const todos = await getTodos();
         setTodos(todos);
+        setError(null);
       } catch (err) {
         setError(err);
       } finally {
