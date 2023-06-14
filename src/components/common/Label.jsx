@@ -4,7 +4,7 @@ import { rem } from '../../utils';
 const StyledLabel = styled.label`
   display: block;
   margin-bottom: ${rem(8)};
-  font-weight: ${({ theme }) => theme.fontWeight.md};
+  font-weight: ${props => props.theme.fontWeight.md};
   text-align: left;
 `;
 
