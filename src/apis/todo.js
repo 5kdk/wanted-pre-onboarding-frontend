@@ -12,7 +12,7 @@ export const getTodos = async () => {
   return data;
 };
 
-export const createTodo = async ({ todo }) => {
+export const createTodo = async todo => {
   const { data } = await axios.post(
     `${BASE_SERVER_URL + TODOS_SERVER_URL}`,
     { todo },
