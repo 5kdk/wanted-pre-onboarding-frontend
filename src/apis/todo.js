@@ -40,7 +40,7 @@ export const updateTodo = async ({ id, todo, isCompleted }) => {
   return data;
 };
 
-export const deleteTodo = async ({ id }) => {
+export const deleteTodo = async id => {
   await axios.delete(`${`${BASE_SERVER_URL + TODOS_SERVER_URL}/${id}`}`, {
     headers: {
       Authorization: `Bearer ${getToken()}`,

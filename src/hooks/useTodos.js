@@ -22,7 +22,7 @@ const useTodos = () => {
 
   const update = async ({ id, todo, isCompleted }) => {
     const prevTodos = todos;
-    setTodos(todos.map(todo => (todo.id === id ? { ...todo, todo, isCompleted } : todo)));
+    setTodos(todos.map(todoItem => (todoItem.id === id ? { ...todoItem, todo, isCompleted } : todoItem)));
 
     try {
       await updateTodo({ id, todo, isCompleted });
@@ -33,12 +33,12 @@ const useTodos = () => {
     }
   };
 
-  const remove = async ({ id }) => {
+  const remove = async id => {
     const prevTodos = todos;
     setTodos(todos.filter(todo => todo.id !== id));
 
     try {
-      await deleteTodo({ id });
+      await deleteTodo(id);
       setError(null);
     } catch (err) {
       setError(err);
