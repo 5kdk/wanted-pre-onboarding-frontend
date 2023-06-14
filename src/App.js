@@ -4,12 +4,13 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle, theme } from './styles';
 import { ROOT_URL, SIGNIN_URL, SIGNUP_URL, TODO_URL } from './constants';
 import AuthenticationGuard from './guard/AuthenticationGuard';
+import { Loader } from './components';
 
 const lazyLoadRoutes = pageName => {
   const LazyElement = lazy(() => import(`./pages/${pageName}.jsx`));
 
   return (
-    <Suspense fallback={<div>...loading</div>}>
+    <Suspense fallback={<Loader />}>
       <LazyElement />
     </Suspense>
   );
