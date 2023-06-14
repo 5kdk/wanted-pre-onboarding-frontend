@@ -1,21 +1,9 @@
-import { Suspense, lazy } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle, theme } from './styles';
 import { ROOT_URL, SIGNIN_URL, SIGNUP_URL, TODO_URL } from './constants';
-import { Loader } from './components';
+import { Root, SignIn, SignUp, Todo } from './pages';
 import AuthenticationGuard from './guard/AuthenticationGuard';
-import Root from './pages/Root';
-
-const lazyLoadRoutes = pageName => {
-  const LazyElement = lazy(() => import(`./pages/${pageName}.jsx`));
-
-  return (
-    <Suspense fallback={<Loader />}>
-      <LazyElement />
-    </Suspense>
-  );
-};
 
 const routerConfig = createBrowserRouter([
   {
@@ -24,15 +12,15 @@ const routerConfig = createBrowserRouter([
     children: [
       {
         path: SIGNIN_URL,
-        element: <AuthenticationGuard redirectTo={TODO_URL} element={lazyLoadRoutes('SignIn')} />,
+        element: <AuthenticationGuard redirectTo={TODO_URL} element={<SignIn />} />,
       },
       {
         path: SIGNUP_URL,
-        element: <AuthenticationGuard redirectTo={TODO_URL} element={lazyLoadRoutes('SignUp')} />,
+        element: <AuthenticationGuard redirectTo={TODO_URL} element={<SignUp />} />,
       },
       {
         path: TODO_URL,
-        element: <AuthenticationGuard redirectTo={SIGNIN_URL} element={lazyLoadRoutes('Todo')} />,
+        element: <AuthenticationGuard redirectTo={SIGNIN_URL} element={<Todo />} />,
       },
     ],
   },
