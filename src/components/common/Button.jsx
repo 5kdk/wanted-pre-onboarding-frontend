@@ -1,37 +1,26 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { rem } from '../../utils';
 
 const StyledButton = styled.button`
   background-color: ${props => props.theme.colors.primary};
-  width: 100%;
-  border: none;
-  color: ${props => props.theme.colors.white};
-  padding: ${rem(15)} ${rem(32)};
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+  width: ${props => props.w || '100%'};
+  padding: ${props => props.theme.spacing.md};
   border-radius: ${rem(5)};
-  font-weight: ${props => props.theme.fontWeight.md};
-  font-size: ${rem(16)};
-  transition: 0.3s ease-out;
+  font-size: ${props => props.theme.fontSize.md};
+  color: ${props => props.theme.colors.white};
+
   &:hover {
-    box-shadow: ${props => props.theme.shadow};
     background-color: ${props => props.theme.colors.primaryFocus};
   }
-  cursor: pointer;
 
-  ${({ disabled }) =>
-    disabled &&
-    `
+  ${props =>
+    props.disabled &&
+    css`
       opacity: 0.5;
       cursor: not-allowed;
     `}
 `;
 
-const Button = ({ children, type = 'button', disabled, onClick }) => (
-  <StyledButton type={type} disabled={disabled} onClick={onClick}>
-    {children}
-  </StyledButton>
-);
+const Button = ({ children, ...rest }) => <StyledButton {...rest}>{children}</StyledButton>;
 
 export default Button;

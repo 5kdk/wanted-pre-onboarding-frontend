@@ -26,7 +26,7 @@ const Root = () => {
 
   return (
     <Container>
-      <Title>Wanted Pre-onboarding</Title>
+      <Title>Wanted Pre-onboarding 🚢</Title>
       <Outlet />
     </Container>
   );

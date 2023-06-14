@@ -33,7 +33,7 @@ const SignIn = () => {
             data-testid="password-input"
             onChange={handleValueChange}
           />
-          <Button type="submit" data-testid="signup-button" disabled={!allValid}>
+          <Button type="submit" data-testid="signin-button" disabled={!allValid}>
             Sign In
           </Button>
         </form>

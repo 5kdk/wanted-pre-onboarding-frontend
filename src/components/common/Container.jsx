@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { rem } from '../../utils';
 
 const StyledContainer = styled.div`
@@ -9,10 +9,26 @@ const StyledContainer = styled.div`
   border-radius: ${rem(5)};
   background-color: ${props => props.theme.colors.white};
   box-shadow: ${props => props.theme.shadow};
-  ${props => props.mt && `margin-top: ${props.theme.spacing[props.mt]}`}
-  ${props => props.mb && `margin-bottom: ${props.theme.spacing[props.mb]}`}
-  ${props => props.ml && `margin-left: ${props.theme.spacing[props.ml]}`}
-  ${props => props.mr && `margin-right: ${props.theme.spacing[props.mr]}`}
+  ${props =>
+    props.mt &&
+    css`
+      margin-top: ${props.theme.spacing[props.mt]};
+    `};
+  ${props =>
+    props.mb &&
+    css`
+      margin-bottom: ${props.theme.spacing[props.mb]};
+    `};
+  ${props =>
+    props.ml &&
+    css`
+      margin-left: ${props.theme.spacing[props.ml]};
+    `};
+  ${props =>
+    props.mr &&
+    css`
+      margin-right: ${props.theme.spacing[props.mr]};
+    `};
 `;
 
 const Container = ({ children, ...rest }) => <StyledContainer {...rest}>{children}</StyledContainer>;

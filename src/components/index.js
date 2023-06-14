@@ -7,3 +7,4 @@ export { default as Loader } from './common/Loader';
 export { default as SubTitle } from './common/SubTitle';
 export { default as TodoInput } from './todo/TodoInput';
 export { default as TodoItem } from './todo/TodoItem';
+export { default as TodoButton } from './todo/TodoButton';
