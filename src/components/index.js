@@ -4,3 +4,5 @@ export { default as Input } from './common/Input';
 export { default as Label } from './common/Label';
 export { default as Loader } from './common/Loader';
 export { default as SubTitle } from './common/SubTitle';
+export { default as TodoInput } from './todo/TodoInput';
+export { default as TodoItem } from './todo/TodoItem';
