@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Button, Container, Loader, SubTitle, TodoInput, TodoItem } from '../components';
+import { Button, Container, Error, Loader, SubTitle, TodoInput, TodoItem } from '../components';
 import { useTodos } from '../hooks';
 import { deleteToken, rem } from '../utils';
 import { ROOT_URL } from '../constants';
@@ -9,23 +9,23 @@ const TodoList = styled.ul`
   padding-bottom: ${props => props.theme.spacing.lg};
 `;
 
-const ErrorText = styled.span`
-  position: absolute;
-  top: 0;
-  left: 0;
-`;
-
 const Todo = () => {
   const { todos, isLoading, error, create, update, remove } = useTodos();
 
-  if (isLoading) return <Loader />;
+  if (isLoading) {
+    return (
+      <Container w={rem(1000)} p="xl">
+        <Loader />
+      </Container>
+    );
+  }
 
   return (
     <>
       <Container w={rem(1000)} p="xl">
         <SubTitle>Todo</SubTitle>
         <TodoInput create={create} />
-        {error && <ErrorText>{error.response.data.message}</ErrorText>}
+        {error && <Error>{error.response.data.message}</Error>}
         {todos.length === 0 ? (
           <div>아직 Todo가 없습니다.</div>
         ) : (
