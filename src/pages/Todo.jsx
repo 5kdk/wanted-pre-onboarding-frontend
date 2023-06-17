@@ -14,7 +14,7 @@ const Todo = () => {
 
   if (isLoading) {
     return (
-      <Container w={rem(1000)} p="xl">
+      <Container w={rem(800)} p="xl">
         <Loader />
       </Container>
     );
@@ -22,12 +22,12 @@ const Todo = () => {
 
   return (
     <>
-      <Container w={rem(1000)} p="xl">
+      <Container w={rem(800)} p="xl">
         <SubTitle>Todo</SubTitle>
+        {error && <Error textAlign="center">{error.response.data.message}</Error>}
         <TodoInput create={create} />
-        {error && <Error>{error.response.data.message}</Error>}
         {todos.length === 0 ? (
-          <div>아직 Todo가 없습니다.</div>
+          <p>아직 Todo가 없습니다.</p>
         ) : (
           <TodoList>
             {todos.map(({ id, todo, isCompleted }) => (
@@ -36,7 +36,7 @@ const Todo = () => {
           </TodoList>
         )}
       </Container>
-      <Container w={rem(1000)} mt="lg">
+      <Container w={rem(800)} mt="lg">
         <Link to={ROOT_URL} onClick={deleteToken}>
           <Button type="button">Sign out</Button>
         </Link>

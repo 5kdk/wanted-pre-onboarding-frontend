@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const Text = styled.p`
-  text-align: left;
+  text-align: ${props => props.textAlign || 'left'};
   color: ${props => props.theme.colors.caution};
   ${props =>
     props.size &&
@@ -10,6 +10,6 @@ const Text = styled.p`
     `}
 `;
 
-const Error = ({ size, children }) => <Text size={size}>{children}</Text>;
+const Error = ({ children, ...rest }) => <Text {...rest}>{children}</Text>;
 
 export default Error;
