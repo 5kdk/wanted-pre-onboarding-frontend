@@ -52,7 +52,6 @@ const useTodos = () => {
         setIsLoading(true);
         const todos = await getTodos();
         setTodos(todos);
-        setError(null);
       } catch (err) {
         setError(err);
       } finally {
