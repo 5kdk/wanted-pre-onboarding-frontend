@@ -42,8 +42,8 @@ const TodoItem = ({ id, todo, isCompleted, update, remove }) => {
     setIsEditMode(false);
   };
 
-  const handleCancelClick = () => {
-    setIsEditMode(true);
+  const handleEditMode = () => {
+    setIsEditMode(prev => !prev);
   };
 
   const handleDeleteClick = () => {
@@ -64,13 +64,13 @@ const TodoItem = ({ id, todo, isCompleted, update, remove }) => {
           <TodoButton type="button" data-testid="submit-button" onClick={handleSubmit} mr="xs">
             제출
           </TodoButton>
-          <TodoButton type="button" data-testid="cancel-button" onClick={handleCancelClick} caution={true}>
+          <TodoButton type="button" data-testid="cancel-button" onClick={handleEditMode} caution={true}>
             취소
           </TodoButton>
         </ButtonWrapper>
       ) : (
         <ButtonWrapper>
-          <TodoButton type="button" data-testid="modify-button" mr="xs" onClick={handleCancelClick}>
+          <TodoButton type="button" data-testid="modify-button" mr="xs" onClick={handleEditMode}>
             수정
           </TodoButton>
           <TodoButton type="button" data-testid="delete-button" onClick={handleDeleteClick} caution={true}>
