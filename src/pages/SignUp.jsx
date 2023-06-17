@@ -1,5 +1,5 @@
 import { rem, validate } from '../utils';
-import { Button, Container, Error, Input, Label, LinkText, SubTitle } from '../components';
+import { Button, Container, Error, LinkText, SignInput, SubTitle } from '../components';
 import { useAuth } from '../hooks';
 import { SIGNIN_URL } from '../constants';
 
@@ -14,25 +14,21 @@ const SignUp = () => {
         <SubTitle>회원가입</SubTitle>
         {error && <Error>{error.response.data.message}</Error>}
         <form onSubmit={handleSignUpSubmit}>
-          <Label htmlFor="email">Email address</Label>
-          <Input
-            type="email"
+          <SignInput
             id="email"
-            name="email"
             value={formValues.email}
             valid={emailValid}
-            data-testid="email-input"
             onChange={handleValueChange}
+            dataTestId="email-input"
+            errorMessage="아이디는 @를 포함해야합니다."
           />
-          <Label htmlFor="password">Password</Label>
-          <Input
-            type="password"
+          <SignInput
             id="password"
-            name="password"
             value={formValues.password}
             valid={passwordValid}
-            data-testid="password-input"
             onChange={handleValueChange}
+            dataTestId="password-input"
+            errorMessage="비밀번호는 8자 이상이여야 합니다."
           />
           <Button type="submit" data-testid="signup-button" disabled={!allValid}>
             Sign up

@@ -1,3 +1,4 @@
+export { default as SignInput } from './auth/SignInput';
 export { default as Button } from './common/Button';
 export { default as Container } from './common/Container';
 export { default as Error } from './common/Error';
