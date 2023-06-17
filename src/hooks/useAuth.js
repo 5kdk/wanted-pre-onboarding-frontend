@@ -6,6 +6,7 @@ import { setToken } from '../utils';
 
 const useAuth = () => {
   const [formValues, setFormValues] = useState({ email: '', password: '' });
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const handleValueChange = e => {
@@ -19,7 +20,7 @@ const useAuth = () => {
       await signUp(formValues);
       navigate(SIGNIN_URL);
     } catch (err) {
-      alert(err.response.data.message);
+      setError(err);
     }
   };
 
@@ -30,11 +31,11 @@ const useAuth = () => {
       setToken(accessToken);
       navigate(TODO_URL);
     } catch (err) {
-      alert(err.response.data.message);
+      setError(err);
     }
   };
 
-  return { formValues, handleValueChange, handleSignUpSubmit, handleSignInSubmit };
+  return { formValues, error, handleValueChange, handleSignUpSubmit, handleSignInSubmit };
 };
 
 export default useAuth;
