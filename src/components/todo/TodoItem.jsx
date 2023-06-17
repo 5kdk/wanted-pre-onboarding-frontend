@@ -21,8 +21,6 @@ const Wrapper = styled.li`
 `;
 
 const ButtonWrapper = styled.div`
-  min-width: ${rem(70)};
-  max-width: ${rem(100)};
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -36,13 +34,15 @@ const TodoItem = ({ id, todo, isCompleted, update, remove }) => {
     <Wrapper>
       {isEditMode ? (
         <>
-          <input
-            type="checkbox"
-            checked={isCompleted}
-            onChange={() => update({ id, todo, isCompleted: !isCompleted })}
-          />
+          <label htmlFor={`todo-${id}`}>
+            <input
+              type="checkbox"
+              id={`todo-${id}`}
+              checked={isCompleted}
+              onChange={() => update({ id, todo, isCompleted: !isCompleted })}
+            />
+          </label>
           <Input
-            type="text"
             value={editValue}
             onChange={e => setEditValue(e.target.value)}
             data-testid="modify-input"
@@ -64,6 +64,7 @@ const TodoItem = ({ id, todo, isCompleted, update, remove }) => {
           <TodoButton
             type="button"
             data-testid="submit-button"
+            mr="xs"
             onClick={() => {
               update({ id, todo: editValue, isCompleted });
               setIsEditMode(false);
@@ -79,6 +80,7 @@ const TodoItem = ({ id, todo, isCompleted, update, remove }) => {
           <TodoButton
             type="button"
             data-testid="modify-button"
+            mr="xs"
             onClick={() => {
               setIsEditMode(true);
               setEditValue(todo);
