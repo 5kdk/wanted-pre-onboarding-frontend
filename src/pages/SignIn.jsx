@@ -1,10 +1,10 @@
 import { rem, validate } from '../utils';
-import { Button, Container, Input, Label, LinkText, SubTitle } from '../components';
+import { Button, Container, Error, Input, Label, LinkText, SubTitle } from '../components';
 import { useAuth } from '../hooks';
 import { SIGNUP_URL } from '../constants';
 
 const SignIn = () => {
-  const { formValues, handleValueChange, handleSignInSubmit } = useAuth();
+  const { formValues, error, handleValueChange, handleSignInSubmit } = useAuth();
   const [emailValid, passwordValid] = validate(formValues);
   const allValid = emailValid && passwordValid;
 
@@ -12,6 +12,7 @@ const SignIn = () => {
     <>
       <Container w={rem(400)}>
         <SubTitle>로그인</SubTitle>
+        {error && <Error>{error.response.data.message}</Error>}
         <form onSubmit={handleSignInSubmit}>
           <Label htmlFor="email">Email address</Label>
           <Input
