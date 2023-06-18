@@ -87,7 +87,7 @@ const TodoItem = ({ id, todo, isCompleted, update, remove }) => {
             <TodoButton type="button" data-testid="modify-button" mr="xs" onClick={handleEditMode}>
               수정
             </TodoButton>
-            <TodoButton type="button" data-testid="delete-button" onClick={handleDeleteClick} caution={true}>
+            <TodoButton type="button" data-testid="delete-button" onClick={handleDeleteClick} caution>
               X
             </TodoButton>
           </ButtonWrapper>
