@@ -75,7 +75,7 @@ const TodoItem = ({ id, todo, isCompleted, update, remove }) => {
             <TodoButton data-testid="submit-button" onClick={handleSubmit} mr="xs">
               제출
             </TodoButton>
-            <TodoButton type="button" data-testid="cancel-button" onClick={handleEditMode} caution={true}>
+            <TodoButton type="button" data-testid="cancel-button" onClick={handleEditMode} caution>
               취소
             </TodoButton>
           </ButtonWrapper>

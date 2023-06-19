@@ -7,26 +7,36 @@ const StyledButton = styled.button`
   padding: ${props => props.theme.spacing.xs};
   border-radius: ${rem(5)};
   font-size: ${props => props.theme.fontSize.sm};
+
   ${props =>
     props.mt &&
     css`
       margin-top: ${props.theme.spacing[props.mt]};
     `};
+
   ${props =>
     props.mb &&
     css`
       margin-bottom: ${props.theme.spacing[props.mb]};
     `};
+
   ${props =>
     props.ml &&
     css`
       margin-left: ${props.theme.spacing[props.ml]};
     `};
+
   ${props =>
     props.mr &&
     css`
       margin-right: ${props.theme.spacing[props.mr]};
     `};
+
+  &:hover {
+    background-color: ${props => props.theme.colors.black};
+    color: ${props => props.theme.colors.white};
+  }
+
   ${props =>
     props.caution &&
     css`
@@ -38,11 +48,6 @@ const StyledButton = styled.button`
         color: ${props => props.theme.colors.white};
       }
     `}
-
-  &:hover {
-    background-color: ${props => props.theme.colors.black};
-    color: ${props => props.theme.colors.white};
-  }
 `;
 
 const TodoButton = ({ children, ...rest }) => <StyledButton {...rest}>{children}</StyledButton>;
