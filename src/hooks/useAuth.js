@@ -29,7 +29,7 @@ const useAuth = () => {
     try {
       const { access_token: accessToken } = await signIn(formValues);
       setToken(accessToken);
-      navigate(TODO_URL);
+      navigate(TODO_URL, { replace: true });
     } catch (err) {
       setError(err);
     }

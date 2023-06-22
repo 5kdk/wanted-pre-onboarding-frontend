@@ -20,7 +20,7 @@ const Root = () => {
 
   useEffect(() => {
     if (pathname === ROOT_URL) {
-      navigate(SIGNIN_URL);
+      navigate(SIGNIN_URL, { replace: true });
     }
   }, [navigate, pathname]);
 
