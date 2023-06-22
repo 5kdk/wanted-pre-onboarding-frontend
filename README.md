@@ -6,6 +6,7 @@
   - [데모 페이지](#데모-페이지)
   - [주요 기능](#주요-기능)
   - [사용 라이브러리](#사용-라이브러리)
+  - [Issue](#issue)
 
 <br>
 
@@ -59,3 +60,9 @@ $ npm start
 - Axios
 - React Router Dom
 - Eslint
+
+<br>
+
+## Issue
+
+- 뒤로가기가 제대로 동작하지 않는 이슈: [useNavigate 옵션을 활용한 사용성 개선](https://github.com/5kdk/My-Notes/blob/main/React/useNavigate%20%EC%98%B5%EC%85%98%EC%9D%84%20%ED%99%9C%EC%9A%A9%ED%95%9C%20%EC%82%AC%EC%9A%A9%EC%84%B1%20%EA%B0%9C%EC%84%A0.md)
